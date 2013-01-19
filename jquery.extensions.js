@@ -14,4 +14,21 @@
     atCharacter: ' [at] ', // <space>[at]<space>
     dotCharacter: ' [dot] ' // <space>[dot]<space>
   };
+
+  // Adapted from Jonathan Snook
+  $.fn.actsAsSlideshow = function(options) {
+    var opts = $.extend({}, $.fn.actsAsSlideshow.defaults, options);
+
+    return this.each(function() {
+      var container = $(this);
+      container.find('img:gt(0)').hide();
+      setInterval(function(){
+        container.find(':first-child').fadeOut()
+                 .next('img').fadeIn(350)
+                 .end().appendTo(container);
+      }, opts.speed);
+    });
+  };
+
+  $.fn.actsAsSlideshow.defaults = { speed: 3500 };
 })(jQuery);
