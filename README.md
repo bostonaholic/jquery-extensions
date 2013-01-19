@@ -47,5 +47,5 @@ $('#slideshow_photos').actsAsSlideshow();
 options:
 
 ``` javascript
-$('#slideshow_photos').actsAsSlideshow({ speed: 1000 });
+$('#slideshow_photos').actsAsSlideshow({ speed: 1000 }); // default speed: 3500 ms
 ```
