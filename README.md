@@ -15,7 +15,13 @@ html:
 javascript:
 
 ``` javascript
-$('[rel=email]').actsAsMailTo()
+$('[rel=email]').actsAsMailTo();
+```
+
+options:
+
+``` javascript
+$('[rel=email]').actsAsMailTo({atCharacter: 'AT', dotCharacter: 'DOT'});
 ```
 
 #### actsAsSlideshow
@@ -35,5 +41,11 @@ html:
 javascript:
 
 ``` javascript
-$('#slideshow_photos').actsAsSlideshow()
+$('#slideshow_photos').actsAsSlideshow();
+```
+
+options:
+
+``` javascript
+$('#slideshow_photos').actsAsSlideshow({ speed: 1000 });
 ```
