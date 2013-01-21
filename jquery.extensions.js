@@ -4,10 +4,18 @@
 
     return this.each(function() {
       var address   = $(this).text().replace(opts.atCharacter, '@').replace(opts.dotCharacter, '.')
-      ,   emailLink = '<a href="mailto:' + address + '">' + address + '</a>';
+      ,   emailLink = '<a href="mailto:' + address + '">' + textOrAddress(opts.innerText, address)  + '</a>';
 
       $(this).replaceWith(emailLink);
     });
+  };
+
+  textOrAddress = function(text, address) {
+    if (text) {
+      return text;
+    } else {
+      return address;
+    }
   };
 
   $.fn.actsAsMailTo.defaults = {
