@@ -4,7 +4,7 @@
 
     return this.each(function() {
       var address   = $(this).text().replace(opts.atCharacter, '@').replace(opts.dotCharacter, '.')
-      ,   emailLink = '<a href="mailto:' + address + '">' + textOrAddress($(this).attr('data-text'), address)  + '</a>';
+      ,   emailLink = '<a href="mailto:' + address + '" class="' + $(this).attr('class') + '">' + textOrAddress($(this).attr('data-text'), address)  + '</a>';
 
       $(this).replaceWith(emailLink);
     });
