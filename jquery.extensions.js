@@ -23,6 +23,24 @@
     dotCharacter: ' [dot] ' // <space>[dot]<space>
   };
 
+  $.fn.actAsAnchor = function() {
+    return this.each(function() {
+      var $self = $(this);
+      $self.attr('id', $self.text().toLowerCase());
+    });
+  };
+
+  $.fn.actAsLinkToAnchor = function() {
+    return this.each(function() {
+      var $self = $(this)
+      ,   text = $self.text()
+      ,   link = "<a href='#" + text.toLowerCase() + "'>" + text + "</a>"
+      ,   tag = $self[0].tagName
+      ,   surroundedLink = '<' + tag + '>' + link + '</' + tag + '>';
+      $self.replaceWith(surroundedLink);
+    });
+  };
+
   // Adapted from Jonathan Snook
   $.fn.actsAsSlideshow = function(options) {
     var opts = $.extend({}, $.fn.actsAsSlideshow.defaults, options);
