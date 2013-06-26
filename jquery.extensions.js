@@ -4,17 +4,17 @@
 
     return this.each(function() {
       var address   = $(this).text().replace(opts.atCharacter, '@').replace(opts.dotCharacter, '.')
-      ,   emailLink = '<a href="mailto:' + address + '" class="' + $(this).attr('class') + '">' + textOrAddress($(this).attr('data-text'), address)  + '</a>';
+      ,   emailLink = '<a href="mailto:' + address + '" class="' + $(this).attr('class') + '">' + or($(this).attr('data-text'), address)  + '</a>';
 
       $(this).replaceWith(emailLink);
     });
   };
 
-  textOrAddress = function(text, address) {
-    if (text) {
-      return text;
+  or = function(one, two) {
+    if (one) {
+      return one;
     } else {
-      return address;
+      return two;
     }
   };
 
